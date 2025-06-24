@@ -13,6 +13,8 @@ import { createCard } from "../redux/createCardSlice";
 import TimePicker from "../components/TimePicker";
 import Table from "../components/Table";
 import SelectPerson from "../components/SelectPerson";
+import { getServiceDuration } from "../utils/getServiceDuration";
+import Calendar from "../components/Calendar";
 
 type FlatService = {
   id: number;
@@ -109,6 +111,11 @@ const TimeTablePage = () => {
       alert("Заполните все поля");
       return;
     }
+
+    const durationTime = getServiceDuration(
+      selectedServiceId,
+      selectedCategoryId
+    );
     const infoCard = {
       id: uuidv4(),
       service: currentService?.name,
@@ -116,13 +123,14 @@ const TimeTablePage = () => {
       date,
       employee,
       employeeId,
-      // duration: durationTime,
+      duration: durationTime,
     };
     dispatch(createCard(infoCard));
   };
 
   return (
     <section>
+      <Calendar />
       <div>
         <div>
           <SelectPerson

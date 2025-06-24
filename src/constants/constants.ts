@@ -49,16 +49,16 @@ export const services: ServiceCategory[] = [
     category: "Пластическая хирургия",
     subcategories: [
       { id: 101, name: "Ринопластика", duration: 60 },
-      { id: 102, name: "Блефаропластика", duration: 70 },
-      { id: 103, name: "Липосакция", duration: 120 },
+      { id: 102, name: "Блефаропластика", duration: 75 },
+      { id: 103, name: "Липосакция", duration: 90 },
     ],
   },
   {
     id: 2,
     category: "Косметология",
     subcategories: [
-      { id: 201, name: "Увеличение губ", duration: 20 },
-      { id: 202, name: "Чистка лица", duration: 40 },
+      { id: 201, name: "Увеличение губ", duration: 30 },
+      { id: 202, name: "Чистка лица", duration: 45 },
       { id: 203, name: "Биоревитализация", duration: 60 },
       { id: 204, name: "Биорепарация", duration: 60 },
       { id: 205, name: "Коррекция носогубных складок", duration: 30 },
@@ -71,7 +71,7 @@ export const services: ServiceCategory[] = [
       {
         name: "Гинекология",
         services: [
-          { id: 301, name: "Лечение кисты", duration: 90 },
+          { id: 301, name: "Лечение кисты", duration: 105 },
           { id: 302, name: "Эстетическая гинекология", duration: 60 },
           { id: 303, name: "Удаление миомы", duration: 60 },
         ],
@@ -79,16 +79,16 @@ export const services: ServiceCategory[] = [
       {
         name: "ЛОР",
         services: [
-          { id: 304, name: "Удаление миндалин", duration: 50 },
-          { id: 305, name: "Лечение тонзиллита", duration: 30 },
-          { id: 306, name: "Пластика носового клапана", duration: 130 },
+          { id: 304, name: "Удаление миндалин", duration: 45 },
+          { id: 305, name: "Лечение тонзиллита", duration: 45 },
+          { id: 306, name: "Пластика носового клапана", duration: 105 },
         ],
       },
       {
         name: "Флебология",
         services: [
           { id: 307, name: "Склеротерапия", duration: 60 },
-          { id: 308, name: "Абляция вен", duration: 70 },
+          { id: 308, name: "Абляция вен", duration: 75 },
         ],
       },
     ],
