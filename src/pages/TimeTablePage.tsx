@@ -1,11 +1,18 @@
 import React from "react";
+import { v4 as uuidv4 } from "uuid";
 import { employees, services } from "../constants/constants";
 import plus from "/images/plus.svg";
-import type { ServiceCategory, ServiceCategorySimple } from "../types/types";
+import type {
+  Employee,
+  ServiceCategory,
+  ServiceCategorySimple,
+} from "../types/types";
 import type { AppDispatch, RootState } from "../redux/store";
 import { useDispatch, useSelector } from "react-redux";
 import { createCard } from "../redux/createCardSlice";
 import TimePicker from "../components/TimePicker";
+import Table from "../components/Table";
+import SelectPerson from "../components/SelectPerson";
 
 type FlatService = {
   id: number;
@@ -14,7 +21,6 @@ type FlatService = {
 };
 
 const TimeTablePage = () => {
-  const [isOpen, setOpen] = React.useState(false);
   const [selectedCategoryId, setSelectedCategoryId] = React.useState<
     number | null
   >(null);
@@ -26,28 +32,20 @@ const TimeTablePage = () => {
   );
   const [date, setDate] = React.useState<string>("");
   const [employee, setEmployee] = React.useState<string>("");
+  const [selectedTime, setSelectedTime] = React.useState<string>("");
+
+  const [fullDoctorList, setFullDoctorList] = React.useState<string>("");
 
   const dispatch: AppDispatch = useDispatch();
-  const allEmployees = employees.map((item) => item);
 
-  const [selectedTime, setSelectedTime] = React.useState<string>("");
-  const handleChange = (value: string) => {
+  const allEmployees = employees.map((item) => item);
+  React.useEffect(() => {
+    setFullDoctorList(allEmployees[0].name);
+  }, []);
+
+  const handleChangeTime = (value: string) => {
     setSelectedTime(value);
   };
-
-  //   const generateTimeSlots = (start: number, end: number, step: number) => {
-  //     const slots = [];
-  //     for (let hour = start; hour < end; hour++) {
-  //       for (let min = 0; min < 60; min += step) {
-  //         const hh = hour.toString().padStart(2, "0");
-  //         const mm = min.toString().padStart(2, "0");
-  //         slots.push(`${hh}:${mm}`);
-  //       }
-  //     }
-  //     return slots;
-  //   };
-  //   const timeSlots = generateTimeSlots(9, 21, 15);
-
   function isSimpleCategory(
     category: ServiceCategory
   ): category is ServiceCategorySimple {
@@ -104,30 +102,36 @@ const TimeTablePage = () => {
     const currentService = avaliableService.find(
       (item) => item.id === selectedServiceId
     );
+
+    const selectedEmployee = doctors.find((el) => el.name === employee);
+    const employeeId = selectedEmployee?.id;
     if (!currentService || !selectedTime || !date || !employee) {
       alert("Заполните все поля");
       return;
     }
     const infoCard = {
+      id: uuidv4(),
       service: currentService?.name,
       time: selectedTime,
       date,
       employee,
+      employeeId,
+      // duration: durationTime,
     };
     dispatch(createCard(infoCard));
   };
 
-  console.log(employee);
   return (
     <section>
       <div>
-        <img
-          style={{ width: 20 }}
-          src={plus}
-          alt="Добавить услугу в расписание"
-        />
-        <div className="modal-overlay">
-          <div className="modal">
+        <div>
+          <SelectPerson
+            value={fullDoctorList}
+            onChange={setFullDoctorList}
+            options={allEmployees}
+          />
+
+          <div>
             <select
               onChange={(e) => setSelectedCategoryId(Number(e.target.value))}
             >
@@ -154,41 +158,23 @@ const TimeTablePage = () => {
                 )
               )}
             </select>
-            <select
+            <SelectPerson
               value={employee}
-              onChange={(e) => setEmployee(e.target.value)}
-            >
-              {doctors.map(({ name, id }) => (
-                <option key={id} value={name}>
-                  {name}
-                </option>
-              ))}
-            </select>
-
+              onChange={setEmployee}
+              options={doctors}
+            />
             <div>
               <TimePicker
                 value={selectedTime}
-                handleChange={(value: string) => handleChange(value)}
+                handleChangeTime={(value: string) => handleChangeTime(value)}
               />
-              {/* <label htmlFor="time-select">Выберите время:</label>
-              <select
-                id="time-select"
-                value={selectedTime}
-                onChange={(e) => setSelectedTime(e.target.value)}
-              >
-                <option value="">-- Выберите время --</option>
-                {timeSlots.map((time) => (
-                  <option key={time} value={time}>
-                    {time}
-                  </option>
-                ))}
-              </select> */}
             </div>
             <input onChange={(e) => setDate(e.target.value)} type="date" />
             <button onClick={sendDataForCard}>Отправить</button>
           </div>
         </div>
       </div>
+      <Table value={fullDoctorList} />
     </section>
   );
 };

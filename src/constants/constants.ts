@@ -34,7 +34,7 @@ export const employees: Employee[] = [
   {
     id: 7,
     name: "Никитин Артём Евгеньевич",
-    specialtyIds: [304, 306],
+    specialtyIds: [304, 305, 306],
   },
   {
     id: 8,
@@ -48,20 +48,20 @@ export const services: ServiceCategory[] = [
     id: 1,
     category: "Пластическая хирургия",
     subcategories: [
-      { id: 101, name: "Ринопластика" },
-      { id: 102, name: "Блефаропластика" },
-      { id: 103, name: "Липосакция" },
+      { id: 101, name: "Ринопластика", duration: 60 },
+      { id: 102, name: "Блефаропластика", duration: 70 },
+      { id: 103, name: "Липосакция", duration: 120 },
     ],
   },
   {
     id: 2,
     category: "Косметология",
     subcategories: [
-      { id: 201, name: "Увеличение губ" },
-      { id: 202, name: "Чистка лица" },
-      { id: 203, name: "Биоревитализация" },
-      { id: 204, name: "Биорепарация" },
-      { id: 205, name: "Коррекция носогубных складок" },
+      { id: 201, name: "Увеличение губ", duration: 20 },
+      { id: 202, name: "Чистка лица", duration: 40 },
+      { id: 203, name: "Биоревитализация", duration: 60 },
+      { id: 204, name: "Биорепарация", duration: 60 },
+      { id: 205, name: "Коррекция носогубных складок", duration: 30 },
     ],
   },
   {
@@ -71,24 +71,24 @@ export const services: ServiceCategory[] = [
       {
         name: "Гинекология",
         services: [
-          { id: 301, name: "Лечение кисты" },
-          { id: 302, name: "Эстетическая гинекология" },
-          { id: 303, name: "Удаление миомы" },
+          { id: 301, name: "Лечение кисты", duration: 90 },
+          { id: 302, name: "Эстетическая гинекология", duration: 60 },
+          { id: 303, name: "Удаление миомы", duration: 60 },
         ],
       },
       {
         name: "ЛОР",
         services: [
-          { id: 304, name: "Удаление миндалин" },
-          { id: 305, name: "Лечение тонзиллита" },
-          { id: 306, name: "Пластика носового клапана" },
+          { id: 304, name: "Удаление миндалин", duration: 50 },
+          { id: 305, name: "Лечение тонзиллита", duration: 30 },
+          { id: 306, name: "Пластика носового клапана", duration: 130 },
         ],
       },
       {
         name: "Флебология",
         services: [
-          { id: 307, name: "Склеротерапия" },
-          { id: 308, name: "Абляция вен" },
+          { id: 307, name: "Склеротерапия", duration: 60 },
+          { id: 308, name: "Абляция вен", duration: 70 },
         ],
       },
     ],

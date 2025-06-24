@@ -7,6 +7,7 @@ export interface Employee {
 export interface SubCategiriesSimple {
   id: number;
   name: string;
+  duration: number;
 }
 export interface SubCategoryGroup {
   //например подгруппа лор
@@ -31,8 +32,11 @@ export interface ServiceCategoryGroup {
 export type ServiceCategory = ServiceCategorySimple | ServiceCategoryGroup;
 
 export type InfoCard = {
+  id: string;
   service: string;
   time: string;
   date: string;
   employee: string;
+  employeeId: number;
+  duration: number;
 };

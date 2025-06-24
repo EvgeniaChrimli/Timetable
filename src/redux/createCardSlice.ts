@@ -16,6 +16,9 @@ const createCardSlice = createSlice({
     createCard(state, action) {
       state.cards.push(action.payload);
     },
+    removeCard(state, action) {
+      state.cards = state.cards.filter((itm) => itm.id !== action.payload);
+    },
   },
 });
 export const { createCard } = createCardSlice.actions;
