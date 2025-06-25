@@ -1,0 +1,13 @@
+@use "./variables" as *;
+.linkback {
+  padding: 5px 10px;
+  background-color: transparent;
+  border-radius: 20px;
+  border: 2px solid $color-pink;
+  cursor: pointer;
+
+  &_img {
+    width: 16px;
+    height: 16px;
+  }
+}

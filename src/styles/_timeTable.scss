@@ -1,1 +1,72 @@
 @use "./variables" as *;
+.table {
+  &_body {
+    display: flex;
+    gap: 200px;
+    justify-content: center;
+  }
+  &_body-left {
+    display: flex;
+    flex-direction: column;
+  }
+  &_body-right {
+    display: flex;
+    flex-direction: column;
+    gap: 50px;
+  }
+  &_filter {
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+    justify-content: flex-start;
+    max-width: 400px;
+  }
+  &_form {
+    border-radius: 24px;
+    max-width: 784px;
+    margin: 0 auto;
+  }
+
+  &_form-title {
+    padding-top: 50px;
+    text-align: center;
+  }
+
+  &_form-body {
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+    width: 100%;
+    padding: 20px;
+  }
+  &_form-select {
+    outline: none;
+    border: 2px solid $color-dark;
+    border-radius: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+  }
+
+  &_form-input {
+    border: 2px solid $color-dark-pink;
+    padding: 12px;
+    border-radius: 20px;
+    cursor: pointer;
+    outline: none;
+  }
+  &_form-btn {
+    align-self: center;
+    cursor: pointer;
+    width: auto;
+    padding: 9px 22px;
+    border-radius: 20px;
+    border: 1px solid transparent;
+    background-color: $color-violet;
+    transition: all 1s;
+    color: $color-white;
+
+    &:hover {
+      background-color: $color-dark-violet;
+    }
+  }
+}

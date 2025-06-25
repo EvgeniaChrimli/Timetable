@@ -1,1 +1,57 @@
 @use "./variables" as *;
+
+.calendar {
+  &_header {
+    display: flex;
+    justify-content: center;
+    padding: 20px;
+  }
+
+  &_select {
+    font-size: clamp(0.875rem, 0.8145rem + 0.2614vw, 1.125rem);
+    outline: none;
+    border: none;
+    cursor: pointer;
+  }
+
+  &_option {
+  }
+
+  &_body {
+  }
+  &_weekDays {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+  }
+
+  &_dayofweek {
+  }
+
+  &_days {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 4px;
+  }
+
+  &_day {
+    height: 40px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    font-size: clamp(0.875rem, 0.8145rem + 0.2614vw, 1.125rem);
+  }
+}
+.empty {
+}
+.today {
+  background-color: $color-pink;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+}
+.selected {
+  background-color: $color-dark-pink;
+  border-radius: 50%;
+  aspect-ratio: 1/1;
+  transition: all 0.5s ease-in;
+}

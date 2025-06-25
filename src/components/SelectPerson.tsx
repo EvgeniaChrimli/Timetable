@@ -4,13 +4,24 @@ interface Props {
   value: string;
   onChange: (e: string) => void;
   options: Employee[];
+  storageKey?: string;
 }
-const SelectPerson = ({ value, onChange, options }: Props) => {
+const SelectPerson = ({ value, onChange, options, storageKey }: Props) => {
+  React.useEffect(() => {
+    if (storageKey) {
+      localStorage.setItem(storageKey, value);
+    }
+  }, [value, storageKey]);
   return (
-    <div>
-      <select value={value} onChange={(e) => onChange(e.target.value)}>
+    <div className="selectgroup">
+      <p className="selectgroup_title">Выберите сотрудника:</p>
+      <select
+        className="selectgroup_select select-arrow"
+        value={value}
+        onChange={(e) => onChange(e.target.value)}
+      >
         {options.map(({ name, id }) => (
-          <option key={id} value={name}>
+          <option className="selectgroup_option" key={id} value={name}>
             {name}
           </option>
         ))}

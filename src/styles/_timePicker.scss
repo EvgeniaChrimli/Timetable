@@ -1,0 +1,11 @@
+@use "./variables" as *;
+.timepick {
+  font-size: clamp(0.875rem, 0.8145rem + 0.2614vw, 1.125rem);
+  margin-right: 19px;
+
+  &_select {
+    border: none;
+    outline: none;
+    cursor: pointer;
+  }
+}

@@ -1,0 +1,16 @@
+@use "./variables" as *;
+.selectgroup {
+  font-size: clamp(0.875rem, 0.8145rem + 0.2614vw, 1.125rem);
+
+  &_title {
+    margin-bottom: 15px;
+  }
+
+  &_select {
+    outline: none;
+    border: 2px solid $color-violet;
+    border-radius: 20px;
+    padding: 12px 24px;
+    cursor: pointer;
+  }
+}

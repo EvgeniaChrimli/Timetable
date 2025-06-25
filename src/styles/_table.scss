@@ -1,14 +1,28 @@
 @use "./variables" as *;
-.schedule-table {
+
+.scheduleTable {
   display: flex;
   flex-direction: column;
   gap: 12px;
+  min-width: 600px;
 
-  .appointment {
+  &_row {
+  }
+
+  &_row-time {
+  }
+
+  &_row-appointment {
+    gap: 8px;
+    width: 100%;
+    min-height: 40px;
     padding: 12px;
     border-radius: 8px;
-    background-color: #f0f0f0;
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
+    background-color: $color-violet;
   }
+}
+.filled {
+}
+.emptytime {
+  background-color: $color-pink;
 }

@@ -1,5 +1,6 @@
 import React from "react";
 import { generateTimeSlots } from "../utils/genereteTimeSlots";
+import "../styles/_timePicker.scss";
 
 interface Props {
   value: string;
@@ -9,13 +10,15 @@ const TimePicker = ({ value, handleChangeTime }: Props) => {
   const timeSlots = generateTimeSlots(9, 21, 15);
   return (
     <>
-      <label htmlFor="time-select">Выберите время:</label>
+      <label className="timepick" htmlFor="timepicker">
+        Выберите время:
+      </label>
       <select
-        id="time-select"
+        className="timepick_select"
+        id="timepicker"
         value={value}
         onChange={(e) => handleChangeTime(e.target.value)}
       >
-        <option value="">-- Выберите время --</option>
         {timeSlots.map((time) => (
           <option key={time} value={time}>
             {time}
