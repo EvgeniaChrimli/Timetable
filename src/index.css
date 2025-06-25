@@ -15,6 +15,13 @@
   gap: 200px;
   justify-content: center;
 }
+@media (max-width: 1100px) {
+  .table_body {
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: center;
+  }
+}
 .table_body-left {
   display: flex;
   flex-direction: column;
@@ -24,17 +31,32 @@
   flex-direction: column;
   gap: 50px;
 }
+@media (max-width: 1100px) {
+  .table_body-right {
+    gap: 30px;
+  }
+}
 .table_filter {
   display: flex;
   flex-direction: column;
   gap: 30px;
   justify-content: flex-start;
-  max-width: 400px;
+  width: 100%;
 }
 .table_form {
   border-radius: 24px;
   max-width: 784px;
   margin: 0 auto;
+}
+@media (max-width: 417px) {
+  .table_form {
+    min-width: 280px;
+  }
+}
+@media (max-width: 350px) {
+  .table_form {
+    min-width: 250px;
+  }
 }
 .table_form-title {
   padding-top: 50px;
@@ -82,6 +104,19 @@
   gap: 12px;
   min-width: 600px;
 }
+@media (max-width: 1100px) {
+  .scheduleTable {
+    min-width: 400px;
+    margin: 0 20px;
+  }
+}
+@media (max-width: 417px) {
+  .scheduleTable {
+    min-width: 250px;
+    gap: 10px;
+    justify-content: center;
+  }
+}
 .scheduleTable_row-appointment {
   gap: 8px;
   width: 100%;
@@ -90,11 +125,26 @@
   border-radius: 8px;
   background-color: #b6b7e6;
 }
+@media (max-width: 417px) {
+  .scheduleTable_row-appointment {
+    min-height: 35px;
+    padding: 10px;
+  }
+}
 
 .emptytime {
   background-color: #fbd9db;
 }
 
+@media (max-width: 417px) {
+  .calendar {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+}
 .calendar_header {
   display: flex;
   justify-content: center;
@@ -140,6 +190,11 @@
 .selectgroup {
   font-size: clamp(0.875rem, 0.8145rem + 0.2614vw, 1.125rem);
 }
+@media (max-width: 411px) {
+  .selectgroup {
+    margin: 0 20px;
+  }
+}
 .selectgroup_title {
   margin-bottom: 15px;
 }
@@ -149,6 +204,11 @@
   border-radius: 20px;
   padding: 12px 24px;
   cursor: pointer;
+}
+@media (max-width: 417px) {
+  .selectgroup_select {
+    max-width: 280px;
+  }
 }
 
 .timepick {

@@ -1,6 +1,9 @@
 @use "./variables" as *;
 .selectgroup {
   font-size: clamp(0.875rem, 0.8145rem + 0.2614vw, 1.125rem);
+  @media (max-width: 411px) {
+    margin: 0 20px;
+  }
 
   &_title {
     margin-bottom: 15px;
@@ -12,5 +15,8 @@
     border-radius: 20px;
     padding: 12px 24px;
     cursor: pointer;
+    @media (max-width: 417px) {
+      max-width: 280px;
+    }
   }
 }

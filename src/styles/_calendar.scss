@@ -1,6 +1,14 @@
 @use "./variables" as *;
 
 .calendar {
+  @media (max-width: 417px) {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto;
+  }
+
   &_header {
     display: flex;
     justify-content: center;
