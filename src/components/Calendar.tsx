@@ -82,7 +82,12 @@ const Calendar = ({ onDaySelect }: Props) => {
   };
 
   const handleMonth = (e: React.ChangeEvent<HTMLSelectElement>) => {
-    setSelectMonth(Number(e.target.value));
+    // setSelectMonth(Number(e.target.value));
+    const newMonth = Number(e.target.value);
+    setSelectMonth(newMonth);
+    if (newMonth === 0) {
+      setSelectYear(today.getFullYear());
+    }
   };
 
   return (
