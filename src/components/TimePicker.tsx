@@ -1,4 +1,3 @@
-import React from "react";
 import { generateTimeSlots } from "../utils/genereteTimeSlots";
 import "../styles/_timePicker.scss";
 

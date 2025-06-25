@@ -8,7 +8,7 @@ import Lauout from "./components/Lauout.tsx";
 import TimeTablePage from "./pages/TimeTablePage.tsx";
 import HomePage from "./pages/HomePage.tsx";
 
-const router = createBrowserRouter([
+const routes = [
   {
     element: <Lauout />,
     children: [
@@ -22,7 +22,10 @@ const router = createBrowserRouter([
       },
     ],
   },
-]);
+];
+const router = createBrowserRouter(routes, {
+  basename: "/Timetable",
+});
 
 createRoot(document.getElementById("root")!).render(
   <StrictMode>
