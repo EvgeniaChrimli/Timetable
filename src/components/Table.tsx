@@ -1,8 +1,10 @@
 import React from "react";
-import { useSelector } from "react-redux";
-import type { RootState } from "../redux/store";
-import "../styles/_table.scss";
+import { useDispatch, useSelector } from "react-redux";
+import type { AppDispatch, RootState } from "../redux/store";
 import { generateTimeSlots } from "../utils/genereteTimeSlots";
+import { removeCard } from "../redux/createCardSlice";
+import delet from "/images/delet.svg";
+import "../styles/_table.scss";
 
 interface Props {
   value: string;
@@ -10,6 +12,7 @@ interface Props {
 }
 const Table = ({ value, calendarDay }: Props) => {
   const cards = useSelector((state: RootState) => state.createCardSlice.cards);
+  const dispatch: AppDispatch = useDispatch();
   const workingHours = generateTimeSlots(9, 21, 15);
 
   React.useEffect(() => {
@@ -21,6 +24,9 @@ const Table = ({ value, calendarDay }: Props) => {
   while (i < workingHours.length) {
     const hour = workingHours[i];
 
+    const deleteCard = (id: string) => {
+      dispatch(removeCard(id));
+    };
     const filteredCard = cards.find((elem) => {
       return (
         elem.employee === value &&
@@ -39,6 +45,11 @@ const Table = ({ value, calendarDay }: Props) => {
             className="scheduleTable_row-appointment filled"
           >
             {filteredCard.employee} — {filteredCard.service}
+            <img
+              className="delete-btn"
+              src={delet}
+              onClick={() => deleteCard(filteredCard.id)}
+            />
           </div>
         </div>
       );
